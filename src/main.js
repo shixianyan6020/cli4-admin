@@ -3,22 +3,40 @@
  * @Author: sxy
  * @Date: 2020-03-18 10:02:02
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-20 15:15:08
+ * @LastEditTime: 2020-03-24 17:03:35
  */
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 // 引入ant ui 库 因为在 balel 里面配置过了，这里不需要再额外的添加ant 样式
-import { Button, Layout, Icon, Drawer, Radio, Menu } from "ant-design-vue";
+import {
+  Button,
+  Layout,
+  Icon,
+  Drawer,
+  Radio,
+  Menu,
+  Form,
+  Input
+} from "ant-design-vue";
+import Authorized from "./components/Authorized"; // 把该组件注册成为一个全局的组件
+import Auth from "./directived/auth"; // 自定义全局的指令
 
 Vue.config.productionTip = false;
+// 按需引入UI组件
 Vue.use(Button);
 Vue.use(Layout);
 Vue.use(Icon);
 Vue.use(Drawer);
 Vue.use(Radio);
 Vue.use(Menu);
+Vue.use(Input);
+Vue.use(Form);
+
+// 引入全局的指令
+Vue.use(Auth);
+Vue.component("Authorized", Authorized);
 new Vue({
   router,
   store,

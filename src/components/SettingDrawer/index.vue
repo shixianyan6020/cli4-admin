@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-20 11:17:30
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-20 14:29:42
+ * @LastEditTime: 2020-03-23 14:55:44
  -->
 <template>
   <div>
@@ -54,7 +54,7 @@ export default {
       console.log(this.$route.query);
       this.$router.push({
         // 把右边抽屉中设置的值保存到路由里面
-        query: { ...this.$route.query, [type]: value }
+        query: { ...this.$route.query, [type]: value } // se6对象的解构赋值
       });
     },
     onClose() {

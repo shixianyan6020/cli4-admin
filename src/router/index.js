@@ -3,17 +3,17 @@
  * @Author: sxy
  * @Date: 2020-03-18 10:02:02
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-21 16:57:11
+ * @LastEditTime: 2020-03-23 11:59:52
  * hideInMenu: 控制是否在侧边栏显示
  * hideChildrenInMenu 控制侧边栏路由下的子界面，是否显示在侧边栏
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import NotFound from "../views/404.vue";
 import NProgress from "nprogress"; // 导入进度条，页面跳转的时候显示在头部的进度条
 import "nprogress/nprogress.css";
 import findLast from "lodash/findLast";
 import Forbidden from "../views/403.vue";
+import NotFound from "../views/404.vue";
 import { notification } from "ant-design-vue";
 import { check, isLogin } from "../utils/auth";
 Vue.use(VueRouter);
@@ -176,10 +176,15 @@ const router = new VueRouter({
 
 // 设置路由跳转时候顶部的进度条
 router.beforeEach((to, form, next) => {
+  console.log(to);
   if (to.path !== form.path) {
     // 只有真的跳转路由的时候执行顶部进度条 修改路由参数时候不执行顶部进度条
     NProgress.start();
   }
+  // _.findLast([1, 2, 3, 4], function(n) {
+  //   return n % 2 == 1;
+  // });
+  // // => 3
   const record = findLast(to.matched, record => record.meta.authority);
   if (record && !check(record.meta.authority)) {
     if (!isLogin && to.path !== "/user/login") {

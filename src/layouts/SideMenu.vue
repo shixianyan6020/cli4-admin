@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-18 18:47:31
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-21 16:25:25
+ * @LastEditTime: 2020-03-24 18:17:09
  -->
 <template>
   <div style="width: 256px">
@@ -72,6 +72,7 @@ export default {
       const menuDate = [];
       for (let item of routers) {
         if (item.meta && item.meta.authority && !check(item.meta.authority)) {
+          // 未通过权限验证的时候
           break;
         }
         if (item.name && !item.hideInMenu) {
@@ -102,7 +103,7 @@ export default {
           );
         }
       }
-      console.log(menuDate);
+      // console.log(menuDate);
       return menuDate;
     }
   }
