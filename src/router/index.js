@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-18 10:02:02
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-23 11:59:52
+ * @LastEditTime: 2020-04-08 17:56:52
  * hideInMenu: 控制是否在侧边栏显示
  * hideChildrenInMenu 控制侧边栏路由下的子界面，是否显示在侧边栏
  */
@@ -47,7 +47,7 @@ const routes = [
   },
   // dashboard 有name字段的就会渲染到菜单上
   {
-    path: "/",
+    path: "/", // 根目录
     meta: { authority: ["admin", "user"] },
     component: () =>
       import(/* webpackChunkName: "about" */ "../layouts/BasicLayout"), // 承载头部 侧边栏 底部
@@ -151,6 +151,29 @@ const routes = [
               )
           }
         ]
+      }
+    ]
+  },
+  // blob 文件导出
+  {
+    path: "/export",
+    name: "export",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../layouts/BasicLayout"), // 承载头部 侧边栏 底部
+    meta: {
+      icon: "form",
+      title: "导出表格",
+      authority: ["admin"]
+    },
+    children: [
+      {
+        path: "/export/exportTable",
+        name: "exportTable",
+        meta: {
+          title: "导出表格"
+        },
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Export/exportTable")
       }
     ]
   },

@@ -3,19 +3,14 @@
  * @Author: sxy
  * @Date: 2020-03-18 19:06:47
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-18 19:12:25
+ * @LastEditTime: 2020-03-27 10:15:17
  -->
 <template>
-  <div>第三步</div>
+  <div>操作成功，预计两小时到账</div>
 </template>
 
-<script type="text/javascript">
-export default {
-  name: "app",
-  data() {
-    return {};
-  }
-};
+<script>
+export default {};
 </script>
 
-<style lang="less" scoped></style>
+<style></style>

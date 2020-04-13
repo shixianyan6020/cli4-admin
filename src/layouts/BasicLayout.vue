@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-18 18:47:31
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-23 21:41:08
+ * @LastEditTime: 2020-03-27 10:16:42
  * @descriot: 此页面主要搭建界面的整体布局分为四大模块 侧边栏-头部-内容区域-底部
  -->
 <template>
@@ -25,7 +25,7 @@
         <!-- 公共头部 -->
         <a-layout-header style="background: #fff; padding: 0">
           <a-icon
-            v-auth="['anmin']"
+            v-auth="['admin']"
             class="trigger"
             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
             @click="collapsed = !collapsed"
