@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-18 10:02:02
  * @LastEditors: sxy
- * @LastEditTime: 2020-04-08 17:56:52
+ * @LastEditTime: 2020-04-13 20:22:57
  * hideInMenu: 控制是否在侧边栏显示
  * hideChildrenInMenu 控制侧边栏路由下的子界面，是否显示在侧边栏
  */
@@ -174,6 +174,29 @@ const routes = [
         },
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/Export/exportTable")
+      }
+    ]
+  },
+   // Lodop打印
+   {
+    path: "/lodop",
+    name: "lodop",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../layouts/BasicLayout"), // 承载头部 侧边栏 底部
+    meta: {
+      icon: "form",
+      title: "lodop打印",
+      authority: ["admin"]
+    },
+    children: [
+      {
+        path: "/lodop/lodopPrint",
+        name: "lodopPrint",
+        meta: {
+          title: "lodop打印"
+        },
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/LodopPrint/index")
       }
     ]
   },
