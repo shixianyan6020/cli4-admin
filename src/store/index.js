@@ -3,7 +3,7 @@
  * @Author: sxy
  * @Date: 2020-03-21 17:11:43
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-26 19:25:33
+ * @LastEditTime: 2020-04-20 19:45:33
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -15,7 +15,7 @@ export default new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
-  modules: {
+  modules: { // 在modules里面导入我们在modules文件下定义的模块
     form
   }
 });

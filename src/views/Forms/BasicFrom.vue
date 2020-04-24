@@ -1,9 +1,9 @@
 <!--
- * @Description:
+ * @Description: 自定义校验表单
  * @Author: sxy
  * @Date: 2020-03-18 19:06:47
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-24 18:16:04
+ * @LastEditTime: 2020-04-20 19:46:15
  -->
 <template>
   <div>
@@ -72,7 +72,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.form.setFieldsValue({ fieldA: "hello world" });
+      this.form.setFieldsValue({ fieldA: "hello world" }); // 自定义表单赋值方法
     }, 3000);
   },
   computed: {
@@ -101,7 +101,7 @@ export default {
     handleSubmit() {
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log(values);
+          // console.log(values);
           Object.assign(this, values);
         }
       });

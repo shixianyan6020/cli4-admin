@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: sxy
  * @Date: 2020-03-18 19:06:47
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-26 20:10:57
+ * @LastEditTime: 2020-04-20 20:20:46
  -->
 <template>
   <div>
@@ -76,13 +76,19 @@ export default {
       return this.$store.state.form.step;
     }
   },
+  // 对象的解构赋值
+  // let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+  // foo // "aaa"
+  // bar // "bbb"
   methods: {
     handleSubmit() {
+      // console.log(this)
       const { form, $router, $store } = this;
       form.validateFields((err, values) => {
         if (!err) {
+          // 这种写法合法的前提是在vuex中设置 namespaced: true,
           $store.commit({
-            type: "form/saveStepFormData",
+            type: "form/saveStepFormData", //指定对应命名空间, 这样写的好处是避免方法名重复
             payload: values
           });
           $router.push("/form/step-form/confirm");

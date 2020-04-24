@@ -3,17 +3,18 @@
  * @Author: sxy
  * @Date: 2020-03-18 10:02:02
  * @LastEditors: sxy
- * @LastEditTime: 2020-04-13 20:22:57
+ * @LastEditTime: 2020-04-23 14:53:59
  * hideInMenu: 控制是否在侧边栏显示
  * hideChildrenInMenu 控制侧边栏路由下的子界面，是否显示在侧边栏
+ * name: 有name字段显示在菜单上，没有name字段则不显示在菜单上
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import NProgress from "nprogress"; // 导入进度条，页面跳转的时候显示在头部的进度条
 import "nprogress/nprogress.css";
 import findLast from "lodash/findLast";
-import Forbidden from "../views/403.vue";
-import NotFound from "../views/404.vue";
+import Forbidden from "../views/403.vue"; // 403界面
+import NotFound from "../views/404.vue"; // 404界面
 import { notification } from "ant-design-vue";
 import { check, isLogin } from "../utils/auth";
 Vue.use(VueRouter);
@@ -222,7 +223,6 @@ const router = new VueRouter({
 
 // 设置路由跳转时候顶部的进度条
 router.beforeEach((to, form, next) => {
-  console.log(to);
   if (to.path !== form.path) {
     // 只有真的跳转路由的时候执行顶部进度条 修改路由参数时候不执行顶部进度条
     NProgress.start();

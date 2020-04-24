@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: sxy
  * @Date: 2020-03-18 18:47:31
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-24 18:17:09
+ * @LastEditTime: 2020-04-23 20:27:11
  -->
 <template>
   <div style="width: 256px">
@@ -69,18 +69,20 @@ export default {
       this.collapsed = !this.collapsed;
     },
     getMenuDate(routers = [], parentKeys = [], selectedKeys) {
+      console.log(routers)
       const menuDate = [];
       for (let item of routers) {
+        // 通过权限控制，是否在侧边栏显示路由
         if (item.meta && item.meta.authority && !check(item.meta.authority)) {
           // 未通过权限验证的时候
           break;
         }
-        if (item.name && !item.hideInMenu) {
+        if (item.name && !item.hideInMenu) { // 存在name字段并且 item.hideInMenu为false时候显示
           this.openKeysMap[item.path] = parentKeys;
           this.selectedKeysMap[item.path] = [selectedKeys || item.path];
           const newItem = { ...item };
           delete newItem.children;
-          if (item.children && !item.hideChildrenInMenu) {
+          if (item.children && !item.hideChildrenInMenu) { // 存在子路由 并且item.hideChildrenInMenu为false 时候显示在侧边栏
             newItem.children = this.getMenuDate(item.children, [
               ...parentKeys,
               item.path
@@ -103,7 +105,7 @@ export default {
           );
         }
       }
-      // console.log(menuDate);
+      console.log(menuDate);
       return menuDate;
     }
   }

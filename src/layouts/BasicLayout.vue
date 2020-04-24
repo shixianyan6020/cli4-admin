@@ -1,14 +1,14 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: sxy
  * @Date: 2020-03-18 18:47:31
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-27 10:16:42
+ * @LastEditTime: 2020-04-21 17:32:33
  * @descriot: 此页面主要搭建界面的整体布局分为四大模块 侧边栏-头部-内容区域-底部
  -->
 <template>
   <div :class="[`nav-theme-${navTheme}`, `nav-layout-${navLayout}`]">
-    <a-layout id="components-layout-demo-side" style="min-height: 100vh">
+    <a-layout class="components-layout-demo-side" style="min-height: 100vh">
       <!--侧边栏 -->
       <a-layout-sider
         v-if="navLayout === 'left'"
@@ -24,6 +24,7 @@
       <a-layout>
         <!-- 公共头部 -->
         <a-layout-header style="background: #fff; padding: 0">
+          <!-- 控制侧边栏是显示还是收缩 -->
           <a-icon
             v-auth="['admin']"
             class="trigger"
@@ -77,7 +78,12 @@ export default {
   }
 };
 </script>
-
+<style scoped>
+  /* .components-layout-demo-side >>> .ant-menu-dark .ant-menu-item-selected{ */
+    /* >>>表示的是深度选择器 */
+    /* color: #000; */
+  /* } */
+</style>
 <style lang="less" scoped>
 .trigger {
   padding: 0 20px;

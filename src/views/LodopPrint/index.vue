@@ -2,7 +2,7 @@
  * @Author: sxy
  * @Date: 2020-04-13 19:27:50
  * @LastEditors: sxy
- * @LastEditTime: 2020-04-14 12:02:11
+ * @LastEditTime: 2020-04-23 13:46:35
  * @Description:
  -->
 <template>
@@ -47,8 +47,8 @@ export default {
       selectVal: '',
     };
   },
-  created() {
-     this.getPrinterData();
+  mounted() {
+    this.getPrinterData(); // 初始化获取打印机的列表(记录一下这个我一直没搞懂的问题，注意在这个地方一般是请求不到打印机的类表的，因为打印机是异步加载的时候显示的，我们可以在点击下拉列表的时候动态的的去加载打印机列表)
   },
   methods: {
     selectPrint() {
@@ -56,7 +56,7 @@ export default {
     },
     handleChange(value) {
       this.selectVal = value;
-      console.log(`selected ${value}`);
+      // console.log(`selected ${value}`);
     },
     getPrinterData() {
       let lodop = getLodop();
@@ -68,7 +68,7 @@ export default {
         p.ind = i;
         this.printerData.push(p);
       }
-      console.log(this.printerData);
+      // console.log(this.printerData);
     },
     // 查询数据
     // printPdf() {

@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description:
  * @Author: sxy
  * @Date: 2020-03-20 11:17:30
  * @LastEditors: sxy
- * @LastEditTime: 2020-03-23 14:55:44
+ * @LastEditTime: 2020-04-22 15:27:13
  -->
 <template>
   <div>
@@ -14,8 +14,8 @@
       :visible="visible"
       width="300px"
     >
-      <template v-slot:handle>
-        <div class="handle" @click="visible = !visible">
+      <template>
+        <div class="setting-drawer-handle" @click="visible = !visible">
           <a-icon :type="visible ? 'close' : 'setting'"></a-icon>
         </div>
       </template>
@@ -64,22 +64,4 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.header {
-  float: right;
-}
-.handle {
-  position: absolute;
-  top: 240px;
-  right: 300px;
-  width: 48px;
-  height: 48px;
-  background: #1890ff;
-  color: #ffffff;
-  font-size: 20px;
-  text-align: center;
-  line-height: 48px;
-  border-radius: 3px 0 0 3px;
-  cursor: pointer;
-}
-</style>
+<style lang="less" src="./index.less"></style>
