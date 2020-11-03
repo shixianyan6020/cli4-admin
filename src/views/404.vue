@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       // logo // step3
+      age: '17'
     };
   },
   components: {

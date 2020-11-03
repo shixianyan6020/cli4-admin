@@ -13,7 +13,10 @@
 export default {
   name: "app",
   data() {
-    return {};
+    return {
+      test: '3131',
+      name: 'sxy'
+    };
   }
 };
 </script>
